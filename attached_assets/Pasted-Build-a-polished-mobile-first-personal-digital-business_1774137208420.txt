@@ -1,0 +1,218 @@
+Build a polished, mobile-first personal digital business card website for me.
+
+PROJECT GOAL
+Create a short, premium one-screen personal landing page that works like a smarter alternative to Linktree for Instagram, LinkedIn, and social sharing. The audience is employers and recruiters. The page should feel like a mix of a digital CV landing page and a premium personal card.
+
+TECH STACK
+Use React for the frontend.
+Keep it simple, production-ready, and easy to edit.
+Use semantic HTML, clean component structure, and modern CSS.
+Do not use fixed pixel-based layout sizing for the core layout. Styling must be mobile-first and use relative units such as rem, em, %, vw, vh, clamp(), and fluid spacing. Avoid hardcoded fixed dimensions unless absolutely necessary for tiny details like borders.
+
+GENERAL DESIGN DIRECTION
+Style: balanced professional and creative
+Theme: dark
+Color palette: dark navy background with aviation-blue accents
+Visual personality: modern, clean, slightly bold, subtle playful touches, but still recruiter-friendly
+Use smooth micro-interactions and animated hover/tap states on buttons
+Use icons next to links and action buttons
+No top navigation
+No multi-page site
+No heavy effects, no clutter, no gimmicks
+The page should look excellent on mobile first, then scale gracefully to tablet and desktop
+
+PERSONAL BRAND CONTENT
+Name:
+Dime Mishkov
+
+Headline:
+Co-Founder @ JasITi | Java Software Engineer @ HTEC
+
+Audience:
+Employers, recruiters
+
+Primary CTA:
+Get My CV
+
+Secondary CTA:
+Message me
+
+Professional focus areas to highlight:
+- Agile Development
+- System Architecture
+- Team Leadership & Mentorship
+- Technical Guidance
+- Cross-functional Communication
+
+Differentiator:
+Focused person with experience and speed
+
+Proof line near the top:
+14+ years building scalable backend systems
+
+ABOUT SECTION COPY
+Write and display a short 2–3 sentence recruiter-friendly version of this bio:
+
+“As a passionate Senior Java Software Engineer and Technical Lead, I specialize in building scalable, secure, and high-performance backend systems that power real-world healthcare and enterprise solutions. My career reflects a strong foundation in software engineering, a deep commitment to clean architecture, and a drive to lead teams toward excellence.”
+
+Rewrite it to be tighter, clearer, and more suitable for a short card website aimed at recruiters and employers.
+
+IMPORTANT POSITIONING NOTE
+Mention HTEC, but do not mention Frequentis anywhere on the page.
+
+LAYOUT REQUIREMENTS
+Build a short one-screen card-style landing page with minimal vertical scrolling on most mobile devices.
+The structure should include:
+
+1. HERO / CARD AREA
+- Circular profile photo
+- Name
+- Headline
+- Proof line: “14+ years building scalable backend systems”
+- Short About summary
+- Primary action buttons
+- Secondary links
+
+2. ABOUT ME
+Very compact section, integrated into the main card or directly below it
+
+3. DOWNLOADABLE CV
+Primary CTA button must prominently download or open the CV PDF
+
+4. CONTACT / MESSAGE AREA
+Compact and visible without needing deep scroll
+
+Do not create a booking section. Replace any booking idea with “Message me”.
+
+PRIMARY ACTION ORDER
+Buttons/links should appear in this order:
+1. Get My CV
+2. Email me
+3. WhatsApp
+4. LinkedIn
+
+SECONDARY LINK
+Also show GitHub as a secondary link
+
+PUBLIC CONTACT DETAILS TO USE
+LinkedIn:
+https://www.linkedin.com/in/dimemishkov
+
+Email:
+dime.mishkov@gmail.com
+
+WhatsApp:
+https://wa.me/38970757009
+
+GitHub:
+https://github.com/dimisko
+
+Bold profile:
+https://bold.pro/my/dime-mishkov/476r
+
+Mensa email:
+dime.mishkov.mk@member.mensa.org
+
+CONTACT DISPLAY RULES
+- Main visible actions: Get My CV, Email me, WhatsApp, LinkedIn
+- Show GitHub in a secondary link row or compact section
+- Do not show Skype
+- Mensa email may be shown publicly, but make it visually secondary so it does not distract from the main CTA
+- Do not show Bold profile unless used as a subtle secondary “More profile details” link; do not make it a primary action
+
+ASSETS
+Assume the following files exist inside the Replit project:
+- /public/profile.jpg  → circular profile photo
+- /public/Dime-Mishkov-CV.pdf → CV file
+
+Make the code easy to edit if filenames change later.
+
+BUTTON BEHAVIOR
+- “Get My CV” should open or download /Dime-Mishkov-CV.pdf
+- “Email me” should use a mailto link to dime.mishkov@gmail.com
+- “WhatsApp” should open the WhatsApp link
+- “LinkedIn” should open the LinkedIn profile
+- “GitHub” should open the GitHub profile
+Use accessible labels and safe target behaviors for external links
+
+SEO + SOCIAL SHARING
+Set up proper metadata for SEO and social sharing.
+
+Use:
+Title:
+Dime Mishkov | Senior Java Software Engineer
+
+Meta description:
+Backend engineering, technical leadership, and scalable enterprise systems. Download CV or get in touch.
+
+Also include:
+- Open Graph tags
+- Twitter card tags
+- Theme color matching the dark navy theme
+- Social preview support with sensible defaults
+- Favicon placeholder support
+
+ANALYTICS
+Add a simple placeholder for Google Analytics / Google Tag Manager integration.
+Do not actually hardcode a real analytics ID.
+Create a clearly marked placeholder area and comments showing where to insert:
+- GA4 measurement ID and/or
+- GTM container ID
+
+RESPONSIVENESS + UX
+This is critical:
+- Design mobile first
+- Use relative units only for layout, typography, spacing, sizing, and radii wherever practical
+- Use fluid typography with clamp()
+- Use flexible containers and modern responsive CSS
+- Avoid fixed widths and heights for the main layout
+- Ensure tap targets are thumb-friendly
+- Maintain strong contrast and readability in dark mode
+- Keep the design compact enough for a short card-style experience
+- Add subtle animated hover and tap effects for buttons and links
+- Respect prefers-reduced-motion where appropriate
+
+ACCESSIBILITY
+- Use semantic landmarks
+- Use alt text for profile photo
+- Ensure visible focus states
+- Ensure keyboard accessibility
+- Ensure sufficient color contrast
+- Use clear link text and aria labels where helpful
+
+CONTENT/STYLE NOTES
+- Tone should feel credible, smart, modern, and quietly confident
+- Do not overuse buzzwords
+- Do not make it look like a generic Linktree clone
+- Do not make it look too corporate or too playful
+- The result should feel custom and premium
+- Keep copy concise and recruiter-oriented
+
+DELIVERABLES
+Provide:
+1. The complete React code
+2. Clean CSS or styled solution
+3. Any small reusable components if needed
+4. Instructions for where to place the photo and CV file
+5. Clear comments for where to edit text, links, colors, and analytics later
+
+OPTIONAL NICE TOUCHES
+If it improves the result without adding clutter, include:
+- subtle aviation-inspired glow accents
+- a polished card container
+- icon-enhanced buttons
+- a tiny secondary text row for “Co-Founder at JasITi”
+- a compact recruiter-friendly skill chip row
+
+DO NOT INCLUDE
+- No booking section
+- No Skype
+- No Frequentis mention
+- No long scrolling portfolio
+- No testimonials section
+- No blog
+- No complicated animations
+- No fixed-width desktop-first layout
+
+FINAL QUALITY BAR
+The page should feel like a strong personal landing page for a senior backend engineer and technical leader, optimized for recruiters visiting from LinkedIn or social media. It should immediately communicate credibility, make the CV download obvious, and make contacting me frictionless.

@@ -1,0 +1,7 @@
+packages:
+  "framer-motion": "For premium page load entry animations and micro-interactions"
+images: []
+notes:
+  - This is a static, frontend-only personal digital business card.
+  - No backend or API integration is required.
+  - The profile image and CV PDF are expected to be placed in the public folder.

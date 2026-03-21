@@ -16,6 +16,20 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### `artifacts/business-card` (`@workspace/business-card`)
+
+Personal digital business card landing page for Dime Mishkov. Frontend-only React + Vite app. No backend.
+
+- Dark navy + aviation blue theme with framer-motion animations
+- Mobile-first, single page card layout
+- Buttons: Get My CV, Email me, WhatsApp, LinkedIn, GitHub
+- Assets: place `profile.jpg` and `Dime-Mishkov-CV.pdf` in `artifacts/business-card/public/`
+- SEO, Open Graph, Twitter Card meta tags in `index.html`
+- Analytics placeholder (GA4/GTM) in `index.html`
+- All editable data in `src/pages/home.tsx` under `PROFILE_DATA` constant
+
 ## Structure
 
 ```text
