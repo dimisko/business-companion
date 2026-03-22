@@ -1,3 +1,11 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <rect width="180" height="180" rx="36" fill="#0a1628"/>
+  <rect width="180" height="180" rx="36" fill="url(#grad)" opacity="0.6"/>
+  <text x="90" y="118" font-family="system-ui, -apple-system, sans-serif" font-size="76" font-weight="700" text-anchor="middle" fill="#1e88e5" letter-spacing="-2">DM</text>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1e88e5" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0a1628" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
 </svg>
