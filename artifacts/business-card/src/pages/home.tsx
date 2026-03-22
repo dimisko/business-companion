@@ -3,7 +3,7 @@ import { Download, Mail, MessageCircle, Linkedin, Github, ExternalLink } from "l
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ArchDiagram } from "@/components/ArchDiagram";
 
 // ─── Edit your info here ───────────────────────────────────────────────────
 const PROFILE_DATA = {
@@ -11,13 +11,6 @@ const PROFILE_DATA = {
   headline: "Co-Founder @ JasITi | Java Software Engineer @ HTEC",
   proof: "14+ years building scalable backend systems",
   bio: "Senior Java Engineer and Technical Lead with 14+ years building scalable, high-performance backend systems for healthcare and enterprise. Known for clean architecture, strong team leadership, and moving fast without breaking things.",
-  skills: [
-    "Agile Development",
-    "System Architecture",
-    "Team Leadership",
-    "Technical Guidance",
-    "Cross-functional Comms",
-  ],
   imagePath: `${import.meta.env.BASE_URL}profile.jpg`,    // drop profile.jpg in public/
   cvPath: `${import.meta.env.BASE_URL}Dime-Mishkov-CV.pdf`, // drop CV in public/
   email: "dime.mishkov@gmail.com",
@@ -105,18 +98,13 @@ export default function Home() {
               </motion.p>
             </motion.div>
 
-            {/* Skill chips */}
-            <div className="flex flex-wrap justify-center gap-2 mt-7 mb-8 w-full">
-              {PROFILE_DATA.skills.map((skill, i) => (
-                <Badge
-                  key={i}
-                  variant="outline"
-                  className="bg-white/5 hover:bg-white/10 border-white/10 text-muted-foreground font-medium py-1.5 px-3 text-[12px] rounded-xl transition-colors cursor-default whitespace-nowrap"
-                >
-                  {skill}
-                </Badge>
-              ))}
-            </div>
+            {/* Architecture diagram */}
+            <motion.div
+              variants={itemVariants}
+              className="w-full mt-6 mb-6 px-1"
+            >
+              <ArchDiagram />
+            </motion.div>
 
             <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
 
