@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
-import { Download, Mail, MessageCircle, Linkedin, Github, ExternalLink } from "lucide-react";
+import { Download, Mail, MessageCircle, Linkedin, Github, ExternalLink, QrCode } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ArchDiagram } from "@/components/ArchDiagram";
+import { QRCodeSVG } from "qrcode.react";
+import { useState } from "react";
 
 // ─── Edit your info here ───────────────────────────────────────────────────
 const PROFILE_DATA = {
@@ -37,6 +40,7 @@ const avatarVariants = {
   show: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 200, damping: 20, delay: 0.1 } },
 };
 
+const SITE_URL = "https://dimisko.github.io/business-companion/";
 const PRIMARY_ACTION = { label: "Get My CV", href: PROFILE_DATA.cvPath, icon: Download, download: "Dime-Mishkov-CV.pdf" };
 const SECONDARY_ACTIONS = [
   { label: "Email",     href: `mailto:${PROFILE_DATA.email}`, icon: Mail,          ariaLabel: "Email me" },
@@ -45,6 +49,8 @@ const SECONDARY_ACTIONS = [
 ];
 
 export default function Home() {
+  const [qrOpen, setQrOpen] = useState(false);
+
   return (
     <div className="min-h-[100dvh] w-full bg-background text-foreground flex items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden">
 
@@ -159,6 +165,13 @@ export default function Home() {
                 >
                   <Github className="w-5 h-5" />
                 </a>
+                <button
+                  onClick={() => setQrOpen(true)}
+                  className="text-muted-foreground hover:text-white transition-colors p-2 hover-elevate"
+                  aria-label="Show QR code"
+                >
+                  <QrCode className="w-5 h-5" />
+                </button>
                 <div className="w-1 h-1 rounded-full bg-white/10" />
                 <a
                   href={PROFILE_DATA.bold}
@@ -182,6 +195,16 @@ export default function Home() {
           </CardContent>
         </Card>
       </motion.div>
+
+      <Dialog open={qrOpen} onOpenChange={setQrOpen}>
+        <DialogContent className="flex flex-col items-center gap-4 bg-card/90 backdrop-blur-2xl border-white/10 rounded-3xl p-8 max-w-xs">
+          <DialogTitle className="text-white text-lg font-semibold">Scan to open</DialogTitle>
+          <div className="rounded-2xl bg-white p-4">
+            <QRCodeSVG value={SITE_URL} size={180} />
+          </div>
+          <p className="text-xs text-muted-foreground text-center break-all">{SITE_URL}</p>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
