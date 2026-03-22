@@ -37,11 +37,11 @@ const avatarVariants = {
   show: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 200, damping: 20, delay: 0.1 } },
 };
 
-const ACTIONS = [
-  { label: "Get My CV",  href: PROFILE_DATA.cvPath,            icon: Download,       primary: true,  download: "Dime-Mishkov-CV.pdf" },
-  { label: "Email me",   href: `mailto:${PROFILE_DATA.email}`, icon: Mail,           primary: false },
-  { label: "WhatsApp",   href: PROFILE_DATA.whatsapp,          icon: MessageCircle,  primary: false, external: true },
-  { label: "LinkedIn",   href: PROFILE_DATA.linkedin,          icon: Linkedin,       primary: false, external: true },
+const PRIMARY_ACTION = { label: "Get My CV", href: PROFILE_DATA.cvPath, icon: Download, download: "Dime-Mishkov-CV.pdf" };
+const SECONDARY_ACTIONS = [
+  { label: "Email",     href: `mailto:${PROFILE_DATA.email}`, icon: Mail,          ariaLabel: "Email me" },
+  { label: "WhatsApp",  href: PROFILE_DATA.whatsapp,          icon: MessageCircle, ariaLabel: "Message on WhatsApp", external: true },
+  { label: "LinkedIn",  href: PROFILE_DATA.linkedin,          icon: Linkedin,      ariaLabel: "LinkedIn profile",    external: true },
 ];
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full max-w-[460px] relative z-10 pt-16 mt-8 mb-8"
+        className="w-full max-w-[460px] relative z-10 pt-16 mt-6 mb-4"
       >
         <Card className="bg-card/70 backdrop-blur-2xl border-white/10 shadow-2xl shadow-black/50 relative overflow-visible rounded-[2rem]">
 
@@ -78,7 +78,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <CardContent className="pt-20 pb-8 px-6 sm:px-8 flex flex-col items-center text-center">
+          <CardContent className="pt-20 pb-6 px-5 sm:px-7 flex flex-col items-center text-center">
 
             {/* Identity */}
             <motion.div variants={containerVariants} initial="hidden" animate="show" className="w-full">
@@ -88,7 +88,7 @@ export default function Home() {
               <motion.h2 variants={itemVariants} className="text-primary font-medium text-[15px] sm:text-base mb-4 leading-snug">
                 {PROFILE_DATA.headline}
               </motion.h2>
-              <motion.div variants={itemVariants} className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full mb-6">
+              <motion.div variants={itemVariants} className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full mb-4">
                 <p className="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-semibold">
                   {PROFILE_DATA.proof}
                 </p>
@@ -101,39 +101,50 @@ export default function Home() {
             {/* Architecture diagram */}
             <motion.div
               variants={itemVariants}
-              className="w-full mt-6 mb-6 px-1"
+              className="w-full mt-4 mb-4 px-1"
             >
               <ArchDiagram />
             </motion.div>
 
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-4" />
 
             {/* Action buttons */}
-            <motion.div variants={containerVariants} initial="hidden" animate="show" className="w-full flex flex-col gap-3.5">
-              {ACTIONS.map((action, i) => (
-                <motion.div key={i} variants={itemVariants} className="w-full">
+            <motion.div variants={containerVariants} initial="hidden" animate="show" className="w-full flex flex-col gap-2.5">
+              {/* Primary CTA */}
+              <motion.div variants={itemVariants} className="w-full">
+                <Button
+                  asChild
+                  className="w-full h-11 rounded-2xl text-[14px] font-semibold group bg-primary text-primary-foreground shadow-[0_4px_20px_-5px_rgba(30,136,229,0.4)] hover:shadow-[0_8px_25px_-5px_rgba(30,136,229,0.6)] border border-primary/50 hover-elevate active-elevate transition-all duration-300"
+                >
+                  <a href={PRIMARY_ACTION.href} download={PRIMARY_ACTION.download} className="flex items-center justify-center w-full">
+                    <PRIMARY_ACTION.icon className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+                    {PRIMARY_ACTION.label}
+                  </a>
+                </Button>
+              </motion.div>
+
+              {/* Secondary actions — compact row */}
+              <motion.div variants={itemVariants} className="w-full grid grid-cols-3 gap-2">
+                {SECONDARY_ACTIONS.map((action, i) => (
                   <Button
+                    key={i}
                     asChild
-                    variant={action.primary ? "default" : "secondary"}
-                    className={`w-full h-14 rounded-2xl text-[15px] font-semibold group transition-all duration-300 hover-elevate active-elevate ${
-                      action.primary
-                        ? "bg-primary text-primary-foreground shadow-[0_4px_20px_-5px_rgba(30,136,229,0.4)] hover:shadow-[0_8px_25px_-5px_rgba(30,136,229,0.6)] border border-primary/50"
-                        : "bg-secondary/60 hover:bg-secondary/90 border border-white/5 backdrop-blur-sm text-foreground"
-                    }`}
+                    variant="secondary"
+                    className="h-10 rounded-xl text-[12px] font-semibold group bg-secondary/50 hover:bg-secondary/80 border border-white/5 backdrop-blur-sm text-foreground hover-elevate active-elevate transition-all duration-300 px-2"
                   >
                     <a
                       href={action.href}
-                      download={"download" in action ? action.download : undefined}
                       target={"external" in action && action.external ? "_blank" : undefined}
                       rel={"external" in action && action.external ? "noopener noreferrer" : undefined}
-                      className="flex items-center justify-center w-full"
+                      aria-label={action.ariaLabel}
+                      className="flex items-center justify-center gap-1.5"
                     >
-                      <action.icon className="w-[18px] h-[18px] mr-2.5 group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
+                      <action.icon className="w-3.5 h-3.5 shrink-0 group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
                       {action.label}
                     </a>
                   </Button>
-                </motion.div>
-              ))}
+                ))}
+              </motion.div>
             </motion.div>
 
             {/* Secondary links */}

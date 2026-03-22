@@ -7,7 +7,7 @@ const CORE = { cx: 190, cy: 124 };
 
 const NODES = [
   { id: "api",     cx: 190, cy: 22,  label: "api-gateway",     skill: "API Dev & Testing"   },
-  { id: "iam",     cx: 324, cy: 65,  label: "iam-service",     skill: "Identity & Access"   },
+  { id: "iam",     cx: 324, cy: 65,  label: "iam-service",     skill: "IAM Management"      },
   { id: "cloud",   cx: 324, cy: 183, label: "cloud-pipeline",  skill: "Cloud & DevOps"      },
   { id: "db",      cx: 190, cy: 226, label: "db-layer",        skill: "Database Management" },
   { id: "backend", cx: 56,  cy: 183, label: "backend-svc",     skill: "Backend Development" },
