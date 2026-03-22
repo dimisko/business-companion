@@ -6,12 +6,12 @@ const H = 248;
 const CORE = { cx: 190, cy: 124 };
 
 const NODES = [
-  { id: "gw",     cx: 190, cy: 22,  label: "api-gateway",    skill: "System Design"          },
-  { id: "auth",   cx: 324, cy: 65,  label: "auth-service",   skill: "Security & Auth"        },
-  { id: "health", cx: 324, cy: 183, label: "health-api",     skill: "Healthcare Systems"     },
-  { id: "data",   cx: 190, cy: 226, label: "data-layer",     skill: "Clean Architecture"     },
-  { id: "team",   cx: 56,  cy: 183, label: "team-platform",  skill: "Leadership & Mentoring" },
-  { id: "ci",     cx: 56,  cy: 65,  label: "ci-cd-pipeline", skill: "Agile Delivery"         },
+  { id: "api",     cx: 190, cy: 22,  label: "api-gateway",     skill: "API Dev & Testing"   },
+  { id: "iam",     cx: 324, cy: 65,  label: "iam-service",     skill: "Identity & Access"   },
+  { id: "cloud",   cx: 324, cy: 183, label: "cloud-pipeline",  skill: "Cloud & DevOps"      },
+  { id: "db",      cx: 190, cy: 226, label: "db-layer",        skill: "Database Management" },
+  { id: "backend", cx: 56,  cy: 183, label: "backend-svc",     skill: "Backend Development" },
+  { id: "arch",    cx: 56,  cy: 65,  label: "arch-service",    skill: "System Architecture" },
 ];
 
 const HUB_LINES   = NODES.map((n) => ({ x1: CORE.cx, y1: CORE.cy, x2: n.cx, y2: n.cy }));
@@ -20,7 +20,7 @@ const RING_LINES  = NODES.map((n, i) => {
   return { x1: n.cx, y1: n.cy, x2: next.cx, y2: next.cy };
 });
 
-const NW = 84; const NH = 36; // outer node box
+const NW = 98; const NH = 36; // outer node box
 const CW = 96; const CH = 42; // core node box
 
 const primary    = "hsl(210,79%,52%)";
@@ -118,7 +118,7 @@ export function ArchDiagram() {
             <text
               x={n.cx}
               y={n.cy + 10}
-              fontSize="8.5"
+              fontSize="8"
               fontFamily="'Plus Jakarta Sans', sans-serif"
               fontWeight="600"
               fill="hsl(210 40% 88%)"
@@ -166,7 +166,7 @@ export function ArchDiagram() {
             fill="hsl(215 20% 60%)"
             letterSpacing="0.4"
           >
-            backend-core
+            tech-lead
           </text>
           {/* name */}
           <text
@@ -178,7 +178,7 @@ export function ArchDiagram() {
             fill={primary}
             textAnchor="middle"
           >
-            Java · Spring Boot
+            Technical Lead
           </text>
         </motion.g>
       </svg>
