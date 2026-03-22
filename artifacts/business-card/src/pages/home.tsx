@@ -3,14 +3,22 @@ import { Download, Mail, MessageCircle, Linkedin, Github, ExternalLink } from "l
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { StackerGame } from "@/components/StackerGame";
+import { Badge } from "@/components/ui/badge";
 
 // ─── Edit your info here ───────────────────────────────────────────────────
 const PROFILE_DATA = {
   name: "Dime Mishkov",
   headline: "Co-Founder @ JasITi | Java Software Engineer @ HTEC",
-  bio: "Senior Java Engineer and Technical Lead building scalable backend systems for healthcare and enterprise. Clean architecture. Fast delivery.",
-  imagePath: `${import.meta.env.BASE_URL}profile.jpg`,   // drop profile.jpg in public/
+  proof: "14+ years building scalable backend systems",
+  bio: "Senior Java Engineer and Technical Lead with 14+ years building scalable, high-performance backend systems for healthcare and enterprise. Known for clean architecture, strong team leadership, and moving fast without breaking things.",
+  skills: [
+    "Agile Development",
+    "System Architecture",
+    "Team Leadership",
+    "Technical Guidance",
+    "Cross-functional Comms",
+  ],
+  imagePath: `${import.meta.env.BASE_URL}profile.jpg`,    // drop profile.jpg in public/
   cvPath: `${import.meta.env.BASE_URL}Dime-Mishkov-CV.pdf`, // drop CV in public/
   email: "dime.mishkov@gmail.com",
   whatsapp: "https://wa.me/38970757009",
@@ -23,11 +31,11 @@ const PROFILE_DATA = {
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.25 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 14 },
+  hidden: { opacity: 0, y: 15 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } },
 };
 
@@ -37,10 +45,10 @@ const avatarVariants = {
 };
 
 const ACTIONS = [
-  { label: "Get My CV",  href: PROFILE_DATA.cvPath,               icon: Download,       primary: true,  download: "Dime-Mishkov-CV.pdf" },
-  { label: "Email me",   href: `mailto:${PROFILE_DATA.email}`,    icon: Mail,           primary: false },
-  { label: "WhatsApp",   href: PROFILE_DATA.whatsapp,             icon: MessageCircle,  primary: false, external: true },
-  { label: "LinkedIn",   href: PROFILE_DATA.linkedin,             icon: Linkedin,       primary: false, external: true },
+  { label: "Get My CV",  href: PROFILE_DATA.cvPath,            icon: Download,       primary: true,  download: "Dime-Mishkov-CV.pdf" },
+  { label: "Email me",   href: `mailto:${PROFILE_DATA.email}`, icon: Mail,           primary: false },
+  { label: "WhatsApp",   href: PROFILE_DATA.whatsapp,          icon: MessageCircle,  primary: false, external: true },
+  { label: "LinkedIn",   href: PROFILE_DATA.linkedin,          icon: Linkedin,       primary: false, external: true },
 ];
 
 export default function Home() {
@@ -80,39 +88,46 @@ export default function Home() {
           <CardContent className="pt-20 pb-8 px-6 sm:px-8 flex flex-col items-center text-center">
 
             {/* Identity */}
-            <motion.div variants={containerVariants} initial="hidden" animate="show" className="w-full mb-6">
+            <motion.div variants={containerVariants} initial="hidden" animate="show" className="w-full">
               <motion.h1 variants={itemVariants} className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-1.5">
                 {PROFILE_DATA.name}
               </motion.h1>
               <motion.h2 variants={itemVariants} className="text-primary font-medium text-[15px] sm:text-base mb-4 leading-snug">
                 {PROFILE_DATA.headline}
               </motion.h2>
-              <motion.p variants={itemVariants} className="text-sm text-muted-foreground leading-relaxed text-pretty max-w-[340px] mx-auto">
+              <motion.div variants={itemVariants} className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full mb-6">
+                <p className="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-muted-foreground font-semibold">
+                  {PROFILE_DATA.proof}
+                </p>
+              </motion.div>
+              <motion.p variants={itemVariants} className="text-sm sm:text-[15px] text-muted-foreground leading-relaxed text-pretty">
                 {PROFILE_DATA.bio}
               </motion.p>
             </motion.div>
 
-            {/* Mini game — replaces skill chips */}
-            <motion.div
-              variants={itemVariants}
-              initial="hidden"
-              animate="show"
-              transition={{ delay: 0.5 }}
-              className="w-full mb-7"
-            >
-              <StackerGame />
-            </motion.div>
+            {/* Skill chips */}
+            <div className="flex flex-wrap justify-center gap-2 mt-7 mb-8 w-full">
+              {PROFILE_DATA.skills.map((skill, i) => (
+                <Badge
+                  key={i}
+                  variant="outline"
+                  className="bg-white/5 hover:bg-white/10 border-white/10 text-muted-foreground font-medium py-1.5 px-3 text-[12px] rounded-xl transition-colors cursor-default whitespace-nowrap"
+                >
+                  {skill}
+                </Badge>
+              ))}
+            </div>
 
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-7" />
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
 
             {/* Action buttons */}
-            <motion.div variants={containerVariants} initial="hidden" animate="show" className="w-full flex flex-col gap-3">
+            <motion.div variants={containerVariants} initial="hidden" animate="show" className="w-full flex flex-col gap-3.5">
               {ACTIONS.map((action, i) => (
                 <motion.div key={i} variants={itemVariants} className="w-full">
                   <Button
                     asChild
                     variant={action.primary ? "default" : "secondary"}
-                    className={`w-full h-13 rounded-2xl text-[15px] font-semibold group transition-all duration-300 hover-elevate active-elevate ${
+                    className={`w-full h-14 rounded-2xl text-[15px] font-semibold group transition-all duration-300 hover-elevate active-elevate ${
                       action.primary
                         ? "bg-primary text-primary-foreground shadow-[0_4px_20px_-5px_rgba(30,136,229,0.4)] hover:shadow-[0_8px_25px_-5px_rgba(30,136,229,0.6)] border border-primary/50"
                         : "bg-secondary/60 hover:bg-secondary/90 border border-white/5 backdrop-blur-sm text-foreground"
@@ -123,7 +138,7 @@ export default function Home() {
                       download={"download" in action ? action.download : undefined}
                       target={"external" in action && action.external ? "_blank" : undefined}
                       rel={"external" in action && action.external ? "noopener noreferrer" : undefined}
-                      className="flex items-center justify-center w-full py-3.5"
+                      className="flex items-center justify-center w-full"
                     >
                       <action.icon className="w-[18px] h-[18px] mr-2.5 group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
                       {action.label}
@@ -134,7 +149,7 @@ export default function Home() {
             </motion.div>
 
             {/* Secondary links */}
-            <motion.div variants={containerVariants} initial="hidden" animate="show" className="mt-8 flex flex-col items-center gap-4 w-full">
+            <motion.div variants={containerVariants} initial="hidden" animate="show" className="mt-10 flex flex-col items-center gap-5 w-full">
               <div className="flex items-center justify-center gap-6">
                 <a
                   href={PROFILE_DATA.github}
@@ -156,11 +171,10 @@ export default function Home() {
                   <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
-
               <a
                 href={`mailto:${PROFILE_DATA.mensaEmail}`}
-                className="text-[11px] text-muted-foreground/30 hover:text-muted-foreground/70 transition-colors"
-                aria-label="Mensa email"
+                className="text-[11px] text-muted-foreground/30 hover:text-muted-foreground/80 transition-colors mt-2"
+                aria-label="Mensa Email Contact"
               >
                 {PROFILE_DATA.mensaEmail}
               </a>
