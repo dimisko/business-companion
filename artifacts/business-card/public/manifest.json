@@ -1,13 +1,13 @@
 {
-  "name": "Dime Mishkov | Senior Java Software Engineer",
+  "name": "Dime Mishkov | Senior Technical Consultant",
   "short_name": "Dime Mishkov",
   "description": "Backend engineering, technical leadership, and scalable enterprise systems.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0a1628",
-  "theme_color": "#0a1628",
+  "background_color": "#0f0f11",
+  "theme_color": "#0f0f11",
   "icons": [
     {
       "src": "favicon.svg",

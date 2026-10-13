@@ -21,6 +21,7 @@
 
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-soft: hsl(var(--primary-soft));
 
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
@@ -41,35 +42,39 @@
 }
 
 :root {
-  /* Strictly Dark Mode for this Premium Personal Brand */
-  --background: 215 52% 11%;
-  --foreground: 210 40% 98%;
-  
-  --card: 220 62% 15%;
-  --card-foreground: 210 40% 98%;
-  
-  --popover: 220 62% 15%;
-  --popover-foreground: 210 40% 98%;
-  
-  --primary: 210 79% 52%;
+  /* Strictly Dark Mode — palette taken from the profile photo:
+     charcoal hoodie, red lining/zipper, silver trim */
+  --background: 240 5% 6%;
+  --foreground: 0 0% 97%;
+
+  --card: 240 4% 10%;
+  --card-foreground: 0 0% 97%;
+
+  --popover: 240 4% 10%;
+  --popover-foreground: 0 0% 97%;
+
+  --primary: 358 84% 46%;
   --primary-foreground: 0 0% 100%;
-  
-  --secondary: 215 40% 20%;
-  --secondary-foreground: 210 40% 98%;
-  
-  --muted: 215 30% 20%;
-  --muted-foreground: 215 20% 65%;
-  
-  --accent: 210 79% 52%;
+
+  /* lighter red for text on dark surfaces (WCAG AA) */
+  --primary-soft: 358 90% 66%;
+
+  --secondary: 240 4% 16%;
+  --secondary-foreground: 0 0% 97%;
+
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 4% 66%;
+
+  --accent: 358 84% 46%;
   --accent-foreground: 0 0% 100%;
-  
+
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  
-  --border: 215 30% 25%;
-  --input: 215 30% 25%;
-  --ring: 210 79% 52%;
-  
+
+  --border: 240 4% 20%;
+  --input: 240 4% 20%;
+  --ring: 358 84% 46%;
+
   --radius: 1rem;
 }
 

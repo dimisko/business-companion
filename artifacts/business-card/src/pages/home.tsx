@@ -11,7 +11,7 @@ import { useState } from "react";
 // ─── Edit your info here ───────────────────────────────────────────────────
 const PROFILE_DATA = {
   name: "Dime Mishkov",
-  headline: "Co-Founder @ JasITi | Java Software Engineer @ HTEC",
+  headline: "Co-Founder @ JasITi | Senior Technical Consultant @ IWConnect",
   proof: "14+ years building scalable backend systems",
   bio: "Senior Java Engineer and Technical Lead with 14+ years building scalable, high-performance backend systems for healthcare and enterprise. Known for clean architecture, strong team leadership, and moving fast without breaking things.",
   imagePath: `${import.meta.env.BASE_URL}profile.jpg`,    // drop profile.jpg in public/
@@ -58,7 +58,7 @@ export default function Home() {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)] opacity-60" />
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/10 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] mix-blend-screen" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[500px] bg-white/[0.04] rounded-full blur-[100px] mix-blend-screen" />
       </div>
 
       {/* Card */}
@@ -79,7 +79,7 @@ export default function Home() {
               <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl group-hover:bg-primary/40 transition-colors duration-500" />
               <Avatar className="w-32 h-32 border-[6px] border-background bg-card shadow-2xl relative z-10 transition-transform duration-500 hover:scale-[1.02]">
                 <AvatarImage src={PROFILE_DATA.imagePath} alt="Dime Mishkov profile photo" className="object-cover" />
-                <AvatarFallback className="text-3xl font-display font-bold text-primary bg-secondary">DM</AvatarFallback>
+                <AvatarFallback className="text-3xl font-display font-bold text-primary-soft bg-secondary">DM</AvatarFallback>
               </Avatar>
             </div>
           </motion.div>
@@ -91,7 +91,7 @@ export default function Home() {
               <motion.h1 variants={itemVariants} className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-white mb-1.5">
                 {PROFILE_DATA.name}
               </motion.h1>
-              <motion.h2 variants={itemVariants} className="text-primary font-medium text-[15px] sm:text-base mb-4 leading-snug">
+              <motion.h2 variants={itemVariants} className="text-primary-soft font-medium text-[15px] sm:text-base mb-4 leading-snug">
                 {PROFILE_DATA.headline}
               </motion.h2>
               <motion.div variants={itemVariants} className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full mb-4">
@@ -120,7 +120,7 @@ export default function Home() {
               <motion.div variants={itemVariants} className="w-full">
                 <Button
                   asChild
-                  className="w-full h-11 rounded-2xl text-[14px] font-semibold group bg-primary text-primary-foreground shadow-[0_4px_20px_-5px_rgba(30,136,229,0.4)] hover:shadow-[0_8px_25px_-5px_rgba(30,136,229,0.6)] border border-primary/50 hover-elevate active-elevate transition-all duration-300"
+                  className="w-full h-11 rounded-2xl text-[14px] font-semibold group bg-primary text-primary-foreground shadow-[0_4px_20px_-5px_rgba(215,19,27,0.4)] hover:shadow-[0_8px_25px_-5px_rgba(215,19,27,0.6)] border border-primary/50 hover-elevate active-elevate transition-all duration-300"
                 >
                   <a href={PRIMARY_ACTION.href} download={PRIMARY_ACTION.download} className="flex items-center justify-center w-full">
                     <PRIMARY_ACTION.icon className="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" strokeWidth={2.5} />
@@ -172,7 +172,12 @@ export default function Home() {
                 >
                   <QrCode className="w-5 h-5" />
                 </button>
-                <div className="w-1 h-1 rounded-full bg-white/10" />
+                {/* grey · red · grey — the sleeve dots from the profile photo */}
+                <div className="flex flex-col gap-1" aria-hidden="true">
+                  <div className="w-1 h-1 rounded-full bg-zinc-500" />
+                  <div className="w-1 h-1 rounded-full bg-primary" />
+                  <div className="w-1 h-1 rounded-full bg-zinc-500" />
+                </div>
                 <a
                   href={PROFILE_DATA.bold}
                   target="_blank"

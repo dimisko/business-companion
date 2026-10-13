@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dime-mishkov-v1';
+const CACHE_NAME = 'dime-mishkov-v2';
 
 self.addEventListener('install', () => {
   self.skipWaiting();

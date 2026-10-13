@@ -23,13 +23,14 @@ const RING_LINES  = NODES.map((n, i) => {
 const NW = 98; const NH = 36; // outer node box
 const CW = 96; const CH = 42; // core node box
 
-const primary    = "hsl(210,79%,52%)";
-const hubStroke  = "hsl(210 79% 52% / 0.30)";
-const ringStroke = "hsl(210 79% 52% / 0.14)";
-const coreFill   = "hsl(218 58% 17%)";
-const outerFill  = "hsl(215 52% 14%)";
-const coreBorder = "hsl(210 79% 52% / 0.65)";
-const outerBorder= "hsl(210 79% 52% / 0.28)";
+const primary    = "hsl(358,84%,46%)";
+const primarySoft= "hsl(358,90%,66%)";
+const hubStroke  = "hsl(358 84% 46% / 0.35)";
+const ringStroke = "hsl(240 4% 70% / 0.14)";
+const coreFill   = "hsl(240 4% 13%)";
+const outerFill  = "hsl(240 4% 9%)";
+const coreBorder = "hsl(358 84% 46% / 0.70)";
+const outerBorder= "hsl(240 4% 70% / 0.22)";
 
 export function ArchDiagram() {
   return (
@@ -109,7 +110,7 @@ export function ArchDiagram() {
               y={n.cy - 3}
               fontSize="6.8"
               fontFamily="'Courier New', monospace"
-              fill="hsl(215 20% 55%)"
+              fill="hsl(240 4% 58%)"
               letterSpacing="0.3"
             >
               {n.label}
@@ -121,7 +122,7 @@ export function ArchDiagram() {
               fontSize="8"
               fontFamily="'Plus Jakarta Sans', sans-serif"
               fontWeight="600"
-              fill="hsl(210 40% 88%)"
+              fill="hsl(0 0% 90%)"
               textAnchor="middle"
             >
               {n.skill}
@@ -163,7 +164,7 @@ export function ArchDiagram() {
             y={CORE.cy - 5}
             fontSize="7.2"
             fontFamily="'Courier New', monospace"
-            fill="hsl(215 20% 60%)"
+            fill="hsl(240 4% 62%)"
             letterSpacing="0.4"
           >
             tech-lead
@@ -175,7 +176,7 @@ export function ArchDiagram() {
             fontSize="10"
             fontFamily="'Plus Jakarta Sans', sans-serif"
             fontWeight="700"
-            fill={primary}
+            fill={primarySoft}
             textAnchor="middle"
           >
             Technical Lead

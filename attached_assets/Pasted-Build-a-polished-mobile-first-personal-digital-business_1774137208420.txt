@@ -26,7 +26,7 @@ Name:
 Dime Mishkov
 
 Headline:
-Co-Founder @ JasITi | Java Software Engineer @ HTEC
+Co-Founder @ JasITi | Senior Technical Consultant @ IWConnect
 
 Audience:
 Employers, recruiters
@@ -140,7 +140,7 @@ Set up proper metadata for SEO and social sharing.
 
 Use:
 Title:
-Dime Mishkov | Senior Java Software Engineer
+Dime Mishkov | Senior Technical Consultant
 
 Meta description:
 Backend engineering, technical leadership, and scalable enterprise systems. Download CV or get in touch.
